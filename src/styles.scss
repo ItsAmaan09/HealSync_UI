@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+.roboto-semibold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+.roboto-regular {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}

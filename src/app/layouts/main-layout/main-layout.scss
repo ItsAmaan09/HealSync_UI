@@ -1,0 +1,24 @@
+.flex-grow-1 {
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  @media (max-width: 991px) {
+    padding-top: 50px;
+  }
+
+  @media (min-width: 992px) {
+    // margin-left: 220px;
+    padding: 20px;
+  }
+
+  &.with-sidebar {
+    @media (min-width: 992px) {
+      margin-left: 260px;
+    }
+  }
+
+  &.with-sidebar.sidebar-collapsed {
+    @media (min-width: 992px) {
+      margin-left: 80px;
+    }
+  }
+}
