@@ -1,0 +1,126 @@
+.signup-wrapper {
+  background: linear-gradient(to right bottom, #f1f5f9, #e2e8f0);
+}
+
+.signup-card {
+  min-height: 650px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.left-panel {
+  background-color: #1a3c34;
+  /* Dark teal subtle background */
+  background-image: linear-gradient(to bottom, #1a3c34 0%, #112a23 100%);
+}
+
+.phone-mockup {
+  width: 240px;
+  height: 480px;
+  background-color: #212121;
+  border-radius: 2.5rem;
+  padding: 8px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 4px solid #333;
+  
+  .phone-notch {
+    width: 100px;
+    height: 20px;
+    z-index: 10;
+  }
+  
+  .phone-screen {
+    background-color: #84b3a6; /* Teal light */
+    overflow: hidden;
+    position: relative;
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.decorative-blob {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  right: -50px;
+  filter: blur(40px);
+}
+
+.font-heading {
+  font-family: 'Roboto', sans-serif;
+}
+
+.bg-theme {
+  background-color: #047857;
+}
+
+.text-theme {
+  color: #047857;
+  
+  &:hover {
+    color: #065f46;
+  }
+}
+
+.btn-theme {
+  background-color: #047857;
+  color: white;
+  border: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  
+  &:hover, &:focus, &:active {
+    background-color: #065f46;
+    color: white;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+
+.form-control, .input-group-text, .btn, .form-check-input {
+  &:focus {
+    box-shadow: none;
+    border-color: #047857;
+  }
+}
+
+.input-group {
+  .input-group-text, .form-control {
+    border-color: #e2e8f0;
+  }
+  
+  &:focus-within {
+    .input-group-text, .form-control {
+      border-color: #047857;
+    }
+    .input-group-text {
+      color: #047857 !important;
+    }
+  }
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Custom form switch styling for healthcare professional toggle */
+.form-check-input:checked {
+  background-color: #047857;
+  border-color: #047857;
+}
+
+.signup-footer {
+  background-color: transparent;
+  border-top-color: #e2e8f0 !important;
+  
+  a:hover {
+    color: #1a3c34 !important;
+    text-decoration: underline !important;
+  }
+}
