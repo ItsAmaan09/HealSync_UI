@@ -44,16 +44,19 @@
             <p class="text-muted small">Please enter your details to access your care dashboard.</p>
           </div>
 
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="onClickLogin()">
             <!-- Email Input -->
             <div class="mb-3">
-              <label for="email" class="form-label small fw-semibold text-dark">Email Address</label>
+              <label for="email" class="form-label small fw-semibold text-dark">Email or Phone</label>
               <div class="input-group">
                 <span class="input-group-text bg-transparent border-end-0 text-muted">
                   <span class="material-icons-outlined fs-5">email</span>
                 </span>
-                <input type="email" class="form-control border-start-0 ps-0" id="email" placeholder="name@example.com">
+                <input type="text" class="form-control border-start-0 ps-0" id="email" formControlName="EmailOrMobile">
               </div>
+              @if (loginForm.get("EmailOrMobile")!.invalid && (loginForm.get("EmailOrMobile")!.touched || submitted)) {
+              <small class="text-danger d-block mb-3">Email or Phone is required</small>
+              }
             </div>
 
             <!-- Password Input -->
@@ -67,11 +70,14 @@
                   <span class="material-icons-outlined fs-5">lock</span>
                 </span>
                 <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="password"
-                  placeholder="••••••••">
+                  placeholder="••••••••" formControlName="Password">
                 <button class="btn border border-start-0 text-muted" type="button" id="togglePassword">
                   <span class="material-icons-outlined fs-5">visibility</span>
                 </button>
               </div>
+              @if (loginForm.get("Password")!.invalid && (loginForm.get("Password")!.touched || submitted)) {
+              <small class="text-danger d-block mb-2">Password is required</small>
+              }
             </div>
 
             <!-- Keep signed in -->
@@ -81,7 +87,7 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit"
+            <button type="submit" [disabled]="loading"
               class="btn btn-theme w-100 py-2 fw-semibold d-flex align-items-center justify-content-center">
               Sign In
               <span class="material-icons-outlined ms-2 fs-5">arrow_forward</span>

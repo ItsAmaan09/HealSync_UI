@@ -4,6 +4,8 @@ import { VerifyOtp } from './verify-otp/verify-otp';
 import { ForgetPassword } from './forget-password/forget-password';
 import { ResetPassword } from './reset-password/reset-password';
 import { Signup } from './signup/signup';
+import { otpGuard } from '../../core/guards/otp.guard';
+import { guestGuard } from '../../core/guards/guest.guard';
 
 export const AUTH_ROUTES: Routes = [
   {
@@ -14,6 +16,7 @@ export const AUTH_ROUTES: Routes = [
   {
     path: 'login',
     component: Login,
+    canActivate: [guestGuard],
     title: 'HealSync | Login'
   },
   {
@@ -23,6 +26,7 @@ export const AUTH_ROUTES: Routes = [
   },
   {
     path: 'verify-otp',
+    canActivate: [otpGuard],
     component: VerifyOtp,
     title: 'HealSync | Verify OTP',
   },
