@@ -23,15 +23,21 @@
     <!-- OTP Form -->
     <form class="w-100" [formGroup]="otpForm" (ngSubmit)="onClickConfirm()">
       <div class="d-flex justify-content-between mb-4 otp-input-group" (paste)="onPaste($event)">
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 0)" (keydown)="onOtpKeydown($event, 0)" />
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 1)" (keydown)="onOtpKeydown($event, 1)" />
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 2)" (keydown)="onOtpKeydown($event, 2)" />
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 3)" (keydown)="onOtpKeydown($event, 3)" />
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 4)" (keydown)="onOtpKeydown($event, 4)" />
-        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0" (input)="onOtpInput($event, 5)" (keydown)="onOtpKeydown($event, 5)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 0)" (keydown)="onOtpKeydown($event, 0)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 1)" (keydown)="onOtpKeydown($event, 1)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 2)" (keydown)="onOtpKeydown($event, 2)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 3)" (keydown)="onOtpKeydown($event, 3)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 4)" (keydown)="onOtpKeydown($event, 4)" />
+        <input #otpInput type="text" maxlength="1" class="form-control text-center fs-4 fw-bold p-0"
+          (input)="onOtpInput($event, 5)" (keydown)="onOtpKeydown($event, 5)" />
       </div>
 
-      <button type="button"
+      <button type="submit"
         class="btn btn-theme w-100 py-3 fw-semibold d-flex align-items-center justify-content-center rounded-3">
         Verify & Proceed
         <span class="material-icons-outlined ms-2 fs-5">arrow_forward</span>
