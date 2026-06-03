@@ -5,6 +5,6 @@ export const DASHBOARD_ROUTES: Routes = [
   {
     path: '',
     component: Dashboard,
-    title: 'Business Portal | Dashboard'
+    title: 'HealSync | Dashboard'
   },
 ];
