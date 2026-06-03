@@ -1,0 +1,86 @@
+.login-wrapper {
+  background: linear-gradient(to right bottom, #f1f5f9, #e2e8f0);
+}
+
+.login-card {
+  min-height: 600px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.left-panel {
+  background-color: #0f172a;
+  /* subtle background texture/gradient could be added here */
+  background-image: radial-gradient(circle at top right, rgba(30, 41, 59, 0.8) 0%, transparent 50%),
+                    radial-gradient(circle at bottom left, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.8) 100%);
+}
+
+.font-heading {
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-theme {
+  background-color: #047857;
+  color: white;
+  border: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  
+  &:hover, &:focus, &:active {
+    background-color: #065f46;
+    color: white;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.text-theme {
+  color: #047857;
+  
+  &:hover {
+    color: #065f46;
+  }
+}
+
+.form-control, .input-group-text, .btn {
+  &:focus {
+    box-shadow: none;
+    border-color: #047857;
+  }
+}
+
+.input-group {
+  .input-group-text, .form-control, .btn {
+    border-color: #e2e8f0;
+  }
+  
+  &:focus-within {
+    .input-group-text, .form-control, .btn {
+      border-color: #047857;
+    }
+    .input-group-text {
+      color: #047857 !important;
+    }
+  }
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.secure-badge {
+  background-color: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.login-footer {
+  background-color: transparent;
+  border-top-color: #e2e8f0 !important;
+  
+  a:hover {
+    color: #0f172a !important;
+    text-decoration: underline !important;
+  }
+}
