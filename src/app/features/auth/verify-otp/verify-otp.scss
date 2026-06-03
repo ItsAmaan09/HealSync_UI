@@ -1,0 +1,82 @@
+.otp-wrapper {
+  background: linear-gradient(to right bottom, #f1f5f9, #e2e8f0);
+}
+
+.otp-card {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.bg-theme {
+  background-color: #047857;
+}
+
+.text-theme {
+  color: #047857;
+  
+  &:hover {
+    color: #065f46;
+  }
+}
+
+.btn-theme {
+  background-color: #047857;
+  color: white;
+  border: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  
+  &:hover, &:focus, &:active {
+    background-color: #065f46;
+    color: white;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.font-heading {
+  font-family: 'Roboto', sans-serif;
+}
+
+.otp-input-group {
+  gap: 8px;
+  
+  .form-control {
+    width: 48px;
+    height: 56px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    color: #0f172a;
+    transition: all 0.2s ease;
+    
+    /* Hide spin buttons for numbers */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    &:focus {
+      border-color: #047857;
+      box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.1);
+      transform: translateY(-2px);
+      outline: none;
+    }
+  }
+}
+
+.hover-text-theme {
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #047857 !important;
+  }
+}
+
+/* Responsiveness for very small screens */
+@media (max-width: 400px) {
+  .otp-input-group .form-control {
+    width: 40px;
+    height: 48px;
+  }
+}
