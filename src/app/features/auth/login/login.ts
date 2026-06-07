@@ -24,6 +24,11 @@ export class Login {
   loading = false;
   error = '';
   submitted: boolean = false;
+  showPassword: boolean = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   onClickLogin() {
     this.submitted = true;

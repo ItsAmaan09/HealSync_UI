@@ -52,7 +52,7 @@
                 <span class="input-group-text bg-transparent border-end-0 text-muted">
                   <span class="material-icons-outlined fs-5">email</span>
                 </span>
-                <input type="text" class="form-control border-start-0 ps-0" id="email" formControlName="EmailOrMobile">
+                <input type="text" class="form-control border-start-0 ps-0" id="email" formControlName="EmailOrMobile" placeholder="Email/Phone">
               </div>
               @if (loginForm.get("EmailOrMobile")!.invalid && (loginForm.get("EmailOrMobile")!.touched || submitted)) {
               <small class="text-danger d-block mb-3">Email or Phone is required</small>
@@ -69,10 +69,10 @@
                 <span class="input-group-text bg-transparent border-end-0 text-muted">
                   <span class="material-icons-outlined fs-5">lock</span>
                 </span>
-                <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="password"
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control border-start-0 border-end-0 ps-0" id="password"
                   placeholder="••••••••" formControlName="Password">
-                <button class="btn border border-start-0 text-muted" type="button" id="togglePassword">
-                  <span class="material-icons-outlined fs-5">visibility</span>
+                <button class="btn border border-start-0 text-muted" type="button" id="togglePassword" (click)="togglePassword()">
+                  <span class="material-icons-outlined fs-5">{{showPassword ? 'visibility_off' : 'visibility'}}</span>
                 </button>
               </div>
               @if (loginForm.get("Password")!.invalid && (loginForm.get("Password")!.touched || submitted)) {
@@ -81,10 +81,10 @@
             </div>
 
             <!-- Keep signed in -->
-            <div class="mb-4 form-check">
+            <!-- <div class="mb-4 form-check">
               <input type="checkbox" class="form-check-input" id="keepSignedIn">
               <label class="form-check-label small text-muted" for="keepSignedIn">Keep me signed in</label>
-            </div>
+            </div> -->
 
             <!-- Submit Button -->
             <button type="submit" [disabled]="loading"
