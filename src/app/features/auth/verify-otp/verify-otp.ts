@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { Router, RouterModule } from '@angular/router';
 import { Footer } from '../../../shared/components/footer/footer';
 import { AuthService } from '../auth.service';
+import { ToastrService } from '../../../shared/services/toastr.service';
 
 @Component({
   standalone: true,
@@ -16,8 +17,11 @@ export class VerifyOtp implements OnInit {
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
+  private readonly toastrService = inject(ToastrService);
 
-  @ViewChildren('otpInput') otpInputs!: import('@angular/core').QueryList<import('@angular/core').ElementRef>;
+  @ViewChildren('otpInput') otpInputs!: import('@angular/core').QueryList<
+    import('@angular/core').ElementRef
+  >;
 
   loading = false;
   otpForm = this.fb.group({
@@ -67,9 +71,9 @@ export class VerifyOtp implements OnInit {
         localStorage.setItem('fullName', res.Data.FullName);
         // localStorage.setItem('CompanyId', res.Data.CompanyId.toString());
         localStorage.removeItem('tempToken');
-        // this.toastrService.success(`${res.Message}`);
+        this.toastrService.success(res.Message);
         this.router.navigate(['/dashboard']);
-        // } 
+        // }
         // else {
         //   this.router.navigate(['/auth/reset-password'], {
         //     state: {
@@ -132,7 +136,7 @@ export class VerifyOtp implements OnInit {
 
   updateOtpFormValue() {
     const inputs = this.otpInputs.toArray();
-    const otpValue = inputs.map(input => input.nativeElement.value).join('');
+    const otpValue = inputs.map((input) => input.nativeElement.value).join('');
     this.otpForm.patchValue({ Otp: otpValue });
   }
 }
