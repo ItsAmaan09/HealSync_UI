@@ -70,6 +70,7 @@ export class VerifyOtp implements OnInit {
         localStorage.setItem('userId', res.Data.UserId.toString());
         localStorage.setItem('fullName', res.Data.FullName);
         // localStorage.setItem('CompanyId', res.Data.CompanyId.toString());
+        localStorage.setItem('role', res.Data.Roles[0]);
         localStorage.removeItem('tempToken');
         this.toastrService.success(res.Message);
         this.router.navigate(['/dashboard']);

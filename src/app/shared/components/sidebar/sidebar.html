@@ -1,0 +1,9 @@
+<ul>
+  @for (menu of menus; track $index) {
+    <li>
+      <a [routerLink]="menu.route">
+        {{ menu.title }}
+      </a>
+    </li>
+  }
+</ul>
