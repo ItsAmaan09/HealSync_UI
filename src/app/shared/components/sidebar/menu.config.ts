@@ -7,10 +7,10 @@ export const PATIENT_MENU = [
     title: 'Patients',
     route: '/patients'
   },
-  {
-    title: 'Book Appointment',
-    route: '/appointments/book'
-  },
+  // {
+  //   title: 'Book Appointment',
+  //   route: '/appointments/book-appointment'
+  // },
   {
     title: 'My Appointments',
     route: '/appointments'
