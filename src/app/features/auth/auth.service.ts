@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { SignupRequestDto } from './auth.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,13 @@ export class AuthService {
   verifyOtp(dto: any): Observable<any> {
     return this.http.post<any>(
       `${this.baseApiUrl}auth/verify-otp`,
+      dto
+    );
+  }
+
+  signup(dto: SignupRequestDto): Observable<any> {
+    return this.http.post<any>(
+      `${this.baseApiUrl}auth/sign-up`,
       dto
     );
   }

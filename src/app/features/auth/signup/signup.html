@@ -1,35 +1,51 @@
 <div
-  class="signup-wrapper min-vh-100 d-flex flex-column align-items-center justify-content-center bg-light position-relative px-3 py-5">
-
+  class="signup-wrapper min-vh-100 d-flex flex-column align-items-center justify-content-center bg-light position-relative px-3 py-5"
+>
   <!-- Main Card -->
-  <div class="signup-card container bg-white shadow rounded-4 overflow-hidden p-0 d-flex" style="max-width: 950px;">
+  <div
+    class="signup-card container bg-white shadow rounded-4 overflow-hidden p-0 d-flex"
+    style="max-width: 950px"
+  >
     <div class="row g-0 w-100 flex-grow-1 flex-column-reverse flex-md-row">
-
       <!-- Left Panel (Dark Teal) -->
       <div
-        class="col-md-5 left-panel d-flex flex-column p-5 text-white position-relative align-items-center justify-content-between overflow-hidden">
-
+        class="col-md-5 left-panel d-flex flex-column p-5 text-white position-relative align-items-center justify-content-between overflow-hidden"
+      >
         <!-- CSS Phone Mockup -->
         <div class="phone-mockup position-relative mt-2">
           <!-- Notch -->
-          <div class="phone-notch position-absolute top-0 start-50 translate-middle-x bg-black rounded-bottom-4"></div>
+          <div
+            class="phone-notch position-absolute top-0 start-50 translate-middle-x bg-black rounded-bottom-4"
+          ></div>
 
           <!-- Screen Content (Abstract) -->
           <div
-            class="phone-screen w-100 h-100 bg-teal-light rounded-4 p-3 d-flex flex-column align-items-center justify-content-center">
+            class="phone-screen w-100 h-100 bg-teal-light rounded-4 p-3 d-flex flex-column align-items-center justify-content-center"
+          >
             <div class="glass-card w-100 p-3 rounded-3 shadow-sm">
               <div class="d-flex justify-content-between align-items-center mb-2">
-                <div class="fw-bold small" style="color: #0f172a;">HealSync</div>
+                <div class="fw-bold small" style="color: #0f172a">HealSync</div>
                 <div class="menu-icon">
-                  <span class="material-icons-outlined" style="color: #0f172a; font-size: 16px;">menu</span>
+                  <span class="material-icons-outlined" style="color: #0f172a; font-size: 16px"
+                    >menu</span
+                  >
                 </div>
               </div>
-              <div class="badge bg-success bg-opacity-25 text-success rounded-pill px-2 py-1 mb-2"
-                style="font-size: 0.65rem;">Active</div>
-              <div class="fw-bold mb-1" style="color: #0f172a; font-size: 0.9rem;">Your Care Plan</div>
-              <div class="small opacity-75 mb-3" style="color: #0f172a; font-size: 0.75rem;">Stay on top of your medical
-                appointments and daily routine.</div>
-              <button class="btn btn-sm btn-theme w-100 rounded-pill" style="font-size: 0.75rem;">View Details</button>
+              <div
+                class="badge bg-success bg-opacity-25 text-success rounded-pill px-2 py-1 mb-2"
+                style="font-size: 0.65rem"
+              >
+                Active
+              </div>
+              <div class="fw-bold mb-1" style="color: #0f172a; font-size: 0.9rem">
+                Your Care Plan
+              </div>
+              <div class="small opacity-75 mb-3" style="color: #0f172a; font-size: 0.75rem">
+                Stay on top of your medical appointments and daily routine.
+              </div>
+              <button class="btn btn-sm btn-theme w-100 rounded-pill" style="font-size: 0.75rem">
+                View Details
+              </button>
             </div>
           </div>
         </div>
@@ -37,26 +53,27 @@
         <!-- Text Content -->
         <div class="mt-4 pt-4 border-top border-light border-opacity-25 text-start w-100 z-1">
           <h2 class="fw-bold font-heading mb-2">Your Health Journey Starts Here</h2>
-          <p class="text-white-50 small mb-0" style="line-height: 1.6;">
-            Join over 10,000 patients and healthcare professionals in a seamless, secure, and trust-driven ecosystem
-            designed for your well-being.
+          <p class="text-white-50 small mb-0" style="line-height: 1.6">
+            Join over 10,000 patients and healthcare professionals in a seamless, secure, and
+            trust-driven ecosystem designed for your well-being.
           </p>
         </div>
 
         <!-- Decorative Background Element -->
-        <div class="decorative-blob position-absolute bg-white bg-opacity-10 rounded-circle pe-none"></div>
+        <div
+          class="decorative-blob position-absolute bg-white bg-opacity-10 rounded-circle pe-none"
+        ></div>
       </div>
 
       <!-- Right Panel (White Form) -->
       <div class="col-md-7 right-panel p-5 d-flex flex-column justify-content-center">
-        <div class="form-container mx-auto w-100" style="max-width: 420px;">
-
+        <div class="form-container mx-auto w-100" style="max-width: 420px">
           <div class="mb-4">
             <h2 class="fw-bold font-heading text-dark mb-2">Create Account</h2>
             <p class="text-muted small">Sign up to access personalized medical care.</p>
           </div>
 
-          <form>
+          <form #signupform="ngForm" (ngSubmit)="onClickSignup(signupform)">
             <!-- Full Name Input -->
             <div class="mb-3">
               <label for="fullName" class="form-label small fw-semibold text-dark">Full Name</label>
@@ -64,80 +81,213 @@
                 <span class="input-group-text bg-transparent border-end-0 text-muted">
                   <span class="material-icons-outlined fs-5">person</span>
                 </span>
-                <input type="text" class="form-control border-start-0 ps-0" id="fullName" placeholder="John Doe">
+                <input
+                  type="text"
+                  class="form-control border-start-0 ps-0"
+                  [class.is-invalid]="fullName.invalid && (fullName.dirty || fullName.touched)"
+                  id="fullName"
+                  name="fullName"
+                  [(ngModel)]="currentSignupRequest.Name"
+                  #fullName="ngModel"
+                  required
+                  placeholder="John Doe"
+                />
               </div>
+              @if (fullName.invalid && (fullName.dirty || fullName.touched)) {
+                <div class="invalid-feedback d-block">
+                  @if (fullName.errors?.['required']) {
+                    Full Name is required
+                  }
+                </div>
+              }
             </div>
 
             <div class="row g-3 mb-3">
               <!-- Email Input -->
               <div class="col-sm-6">
-                <label for="email" class="form-label small fw-semibold text-dark">Email Address</label>
+                <label for="email" class="form-label small fw-semibold text-dark"
+                  >Email Address</label
+                >
                 <div class="input-group">
                   <span class="input-group-text bg-transparent border-end-0 text-muted">
                     <span class="material-icons-outlined fs-5">email</span>
                   </span>
-                  <input type="email" class="form-control border-start-0 ps-0" id="email"
-                    placeholder="name@example.com">
+                  <input
+                    type="email"
+                    class="form-control border-start-0 ps-0"
+                    [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
+                    id="email"
+                    name="email"
+                    [(ngModel)]="currentSignupRequest.Email"
+                    #email="ngModel"
+                    required
+                    (input)="serverErrors['Email'][0] = null"
+                    placeholder="name@example.com"
+                  />
                 </div>
+                @if (email.invalid && (email.dirty || email.touched)) {
+                  <div class="invalid-feedback d-block">
+                    @if (email.errors?.['required']) {
+                      Email is required
+                    }
+                  </div>
+                }
+                @if (serverErrors['Email']) {
+                  <div class="invalid-feedback d-block">
+                    {{ serverErrors['Email'][0] }}
+                  </div>
+                }
               </div>
 
               <!-- Phone Input -->
               <div class="col-sm-6">
-                <label for="phone" class="form-label small fw-semibold text-dark">Phone Number</label>
+                <label for="phone" class="form-label small fw-semibold text-dark"
+                  >Phone Number</label
+                >
                 <div class="input-group">
                   <span class="input-group-text bg-transparent border-end-0 text-muted">
                     <span class="material-icons-outlined fs-5">phone</span>
                   </span>
-                  <input type="tel" class="form-control border-start-0 ps-0" id="phone" placeholder="+1 (555) 000-0000">
+                  <input
+                    type="tel"
+                    class="form-control border-start-0 ps-0"
+                    [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)"
+                    id="phone"
+                    name="phone"
+                    [(ngModel)]="currentSignupRequest.Phone"
+                    #phone="ngModel"
+                    required
+                    placeholder="+1 (555) 000-0000"
+                    (input)="serverErrors['Phone'][0] = null"
+                  />
                 </div>
+                @if (phone.invalid && (phone.dirty || phone.touched)) {
+                  <div class="invalid-feedback d-block">
+                    @if (phone.errors?.['required']) {
+                      Phone is required
+                    }
+                  </div>
+                }
+                @if (serverErrors['Phone']) {
+                  <div class="invalid-feedback d-block">
+                    {{ serverErrors['Phone'][0] }}
+                  </div>
+                }
               </div>
             </div>
 
             <div class="row g-3 mb-4">
               <!-- Password Input -->
               <div class="col-sm-6">
-                <label for="password" class="form-label small fw-semibold text-dark">Password</label>
+                <label for="password" class="form-label small fw-semibold text-dark"
+                  >Password</label
+                >
                 <div class="input-group">
                   <span class="input-group-text bg-transparent border-end-0 text-muted">
                     <span class="material-icons-outlined fs-5">lock</span>
                   </span>
-                  <input type="password" class="form-control border-start-0 ps-0" id="password" placeholder="••••••••">
+                  <input
+                    type="password"
+                    class="form-control border-start-0 ps-0"
+                    [class.is-invalid]="password.invalid && (password.dirty || password.touched)"
+                    id="password"
+                    name="password"
+                    [(ngModel)]="currentSignupRequest.Password"
+                    #password="ngModel"
+                    required
+                    (input)="serverErrors['Password'][0] = null"
+                    placeholder="••••••••"
+                  />
                 </div>
+                @if (password.invalid && (password.dirty || password.touched)) {
+                  <div class="invalid-feedback d-block">
+                    @if (password.errors?.['required']) {
+                      Password is required
+                    }
+                  </div>
+                }
+                @if (serverErrors['Password']) {
+                  <div class="invalid-feedback d-block">
+                    {{ serverErrors['Password'][0] }}
+                  </div>
+                }
               </div>
 
               <!-- Confirm Password Input -->
               <div class="col-sm-6">
-                <label for="confirmPassword" class="form-label small fw-semibold text-dark">Confirm Password</label>
+                <label for="confirmPassword" class="form-label small fw-semibold text-dark"
+                  >Confirm Password</label
+                >
                 <div class="input-group">
                   <span class="input-group-text bg-transparent border-end-0 text-muted">
                     <span class="material-icons-outlined fs-5">sync</span>
                   </span>
-                  <input type="password" class="form-control border-start-0 ps-0" id="confirmPassword"
-                    placeholder="••••••••">
+                  <input
+                    type="password"
+                    class="form-control border-start-0 ps-0"
+                    [class.is-invalid]="
+                      confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)
+                    "
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    [(ngModel)]="currentSignupRequest.ConfirmPassword"
+                    #confirmPassword="ngModel"
+                    required
+                    (input)="serverErrors['ConfirmPassword'][0] = null"
+                    placeholder="••••••••"
+                  />
                 </div>
+                @if (
+                  confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)
+                ) {
+                  <div class="invalid-feedback d-block">
+                    @if (confirmPassword.errors?.['required']) {
+                      Confirm password is required
+                    }
+                  </div>
+                }
+                @if (serverErrors['ConfirmPassword']) {
+                  <div class="invalid-feedback d-block">
+                    {{ serverErrors['ConfirmPassword'][0] }}
+                  </div>
+                }
               </div>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit"
-              class="btn btn-theme w-100 py-2 fw-semibold d-flex align-items-center justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-theme w-100 py-2 fw-semibold d-flex align-items-center justify-content-center"
+            >
               Create Account
             </button>
           </form>
 
           <div class="text-center mt-4 mb-4">
             <span class="text-muted small">Already have an account?</span>
-            <a [routerLink]="['/auth/login']" class="text-decoration-none small text-theme fw-bold ms-1">Log in</a>
+            <a
+              [routerLink]="['/auth/login']"
+              class="text-decoration-none small text-theme fw-bold ms-1"
+              >Log in</a
+            >
           </div>
 
           <div class="text-center">
-            <p class="text-muted" style="font-size: 0.65rem;">By signing up, you agree to our <a href="#"
-                class="text-decoration-none text-muted fw-semibold text-decoration-underline">Terms of Service</a> and
-              <a href="#" class="text-decoration-none text-muted fw-semibold text-decoration-underline">Privacy
-                Policy</a>.
+            <p class="text-muted" style="font-size: 0.65rem">
+              By signing up, you agree to our
+              <a
+                href="#"
+                class="text-decoration-none text-muted fw-semibold text-decoration-underline"
+                >Terms of Service</a
+              >
+              and
+              <a
+                href="#"
+                class="text-decoration-none text-muted fw-semibold text-decoration-underline"
+                >Privacy Policy</a
+              >.
             </p>
           </div>
-
         </div>
       </div>
     </div>
